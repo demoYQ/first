@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="file" name="" id="files">
+    </form>
+    <div></div>
+    <script>
+    var files=document.getElementById('files');
+    files.onchange=function(){
+        var formData=new FormData()
+        formData.set('attrName',this.files[0]);
+        var xml= new XMLHttpRequest();
+        xml.open('post','http://localhost:3000/uploads');
+        xml.send();
+        xml.onload=function(){
+            console.log(typeof xml.responseText);
+            var img=document.createElement('img');
+            img.src=JSON.parse(xml.responseText).path
+            var div=document.querySelector('div');
+            div.appendChild(img);
+            
+        }
+    }
+    
+    </script>
+</body>
+</html>
