@@ -1,4 +1,30 @@
-哈哈哈哈哈哈哈
-4646
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id='btn'>点击发送请求</button>
+    <script>
+    function fn(data){
+        console.log(data);
+        
+    }
+    </script>
+    <script>
+    var btn=document.getElementById('btn');
+    btn.onclick=function(){
+        //创建一个动态的script元素
+        var script=document.createElement('script');
+        script.src='http://localhost:5001/better';
+        document.body.appendChild(script);
+    }
 
-笑个鬼啊
+    
+    
+    </script>
+</body>
+</html>
